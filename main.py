@@ -18,7 +18,7 @@ def pixels_to_ascii(image):
     pixels = image.getdata()
     ascii_str = ""
     for pixel in pixels:
-        ascii_str += ASCII_CHARS[pixel // 25]  # Map pixel value to ASCII character
+        ascii_str += ASCII_CHARS[min(pixel // 25, len(ASCII_CHARS) - 1)]  # Map pixel value to ASCII character
     return ascii_str
 
 def main(image_path, new_width=100):
